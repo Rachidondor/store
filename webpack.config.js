@@ -2,6 +2,7 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import CopyPlugin from "copy-webpack-plugin";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
@@ -66,6 +67,17 @@ export default {
     new MiniCssExtractPlugin({
       filename: "css/style.css"
     }),
-    new CssMinimizerPlugin()
-  ]
+    new CopyPlugin({
+    patterns: [
+      { from: "src/images", to: "images" }, 
+    ],
+  }),
+  ],
+  optimization: {
+    minimize: true, // تفعيل الضغط
+    minimizer: [
+      `...`,
+      new CssMinimizerPlugin(),
+    ],
+  },
 };
