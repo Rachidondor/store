@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر عربي | صفحة الدفع</title>
     <script defer src="./index.js"></script>
-    <title>عربة الشراء</title>
 </head>
 <body>
-    <!-- القائمة العلوية -->
-    <div class="container-fluid">
+  <div class="container-fluid">
      <div class="row">
             <nav class="navbar custom-navbar navbar-expand-lg">
                 <div class="container px-0">
@@ -90,22 +89,95 @@
             </nav>
         </div>
    </div>
-   <!-- نهاية -->
-    <!-- القائمةالفرعية -->
-   <div class="container">
-       <div class="row" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';">
+    <div class="container">
+     <div class="row" aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';">
         <ol class="breadcrumb custom-breadcrumb">
             <li class="breadcrumb-item"><a href="./index.html">الصفحة الرئيسية</a></li>
-            <li class="breadcrumb-item active">عربة الشراء</li>
+            <li class="breadcrumb-item"><a href="./checkout.html">عربة الشراء</a></li>
+            <li class="breadcrumb-item active">صفحة الدفع</li>
         </ol>
-    </div>
-   </div> 
-    <!-- نهاية   -->
-     <div class="container borders-between">
+     </div>
+     <form id="form-checkout">
         <div class="row">
-            <h1 class="heading custom-heading">عربة الشراء</h1>
-            <form action="./payment.html" id="form-checkout">
-                <table class="custom-table">
+         <div class="col-lg-6">
+            <h3 class="heading">بيناتك الشخصية</h3>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <input type="text" name="first-name" class="form-control custom-form-control custom-input-details" placeholder="الاسم الأول" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="text" name="last-name" class="form-control custom-form-control custom-input-details" placeholder="الاسم الأخير" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="email" name="email" class="form-control custom-form-control custom-input-details" placeholder="البريد الإلكتروني" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="text" name="area" class="form-control custom-form-control custom-input-details" placeholder="المنطقة" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <select name="country" class="custom-form-control custom-input-details" required>
+                        <option disabled selected value="">إختر دولة</option>
+                        <option value="sa">السعودية</option>
+                        <option value="alg">الجزائر</option>
+                        <option value="eg">مصر</option>
+                        <option value="sy">سوريا</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                   <select name="city" class="custom-form-control custom-input-details" id="paymentcities" required>
+                     <option disabled selected value="">إختر مدينة</option>
+                   </select> 
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="number" name="number" class="form-control custom-form-control custom-input-details" placeholder="رقم الموبايل" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                   <input type="text" name="address" class="form-control custom-form-control custom-input-details" placeholder="العنوان الأول" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="text" name="address" class="form-control custom-form-control custom-input-details" placeholder="العنوان الثاني (اختياري)">
+                </div>
+            </div>
+         </div>
+         <div class="col-lg-6">
+            <h3 class="heading">بينات الدفع</h3>
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label class="font-weight-bold">
+                        <input type="radio" name="payment-method" value="credit-card" checked>
+                          البطاقة البنكية
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    <label class="font-weight-bold">
+                        <input type="radio" name="payment-method" value="on-delivery">
+                          الدفع عند الإستلام
+                    </label>
+                </div>
+            </div>
+            <div class="row" id="credit-card-info">
+                <div class="col-md-6 mb-3">
+                   <input type="number" name="credit-card-number" placeholder="رقم البطاقة" required 
+                   class="form-control custom-form-control custom-input-details">
+                </div>
+                <div class="col-md-6 mb-3">
+                   <input type="number" name="credit-card-expiration-month" placeholder="شهر الانتهاء" required 
+                   class="form-control custom-form-control custom-input-details" min="1" max="12">
+                </div>
+                <div class="col-md-6 mb-3">
+                   <input type="number" name="credit-card-expiration-year" placeholder="سنة الإنتهاء" required 
+                   class="form-control custom-form-control custom-input-details" min="2021" max="2031">
+                </div>
+                <div class="col-md-6 mb-3">
+                   <input type="number" name="credit-card-cvv" placeholder="رقم cvv" required 
+                   class="form-control custom-form-control custom-input-details">
+                </div>
+            </div>
+         </div>
+        </div>
+        <div class="mt-4">
+            <h2 class="heading">طلبك</h2>
+            <table class="custom-table">
                     <thead>
                         <tr>
                             <th>المنتج</th>
@@ -178,132 +250,17 @@
                             </td>
                         </tr>
                     </tfoot>
-                </table>
-                <button type="submit" class="btn custom-btn-warning custom-btn-with-icon mb-4">
+            </table>
+             <button type="submit" class="btn custom-btn-warning custom-btn-with-icon mb-4">
                     <span>
                          إكمال عملية الشراء
                         <i class="fas fa-dollar-sign fa-lg"></i>
                     </span>
                 </button>
-            </form>
         </div>
-        <div class="row suggestions">
-        <h3 class="heading">إقترحنا لك:</h3>
-        <div class="row">
-                            <div class="col-lg-3 col-md-4">
-                                <div class="card custom-thumbnail">
-                                    <div class="overlay">
-                                        <button class="btn add-to-cart-btn">
-                                            إضافة إلى العربة
-                                         <i class="fa-solid fa-cart-arrow-down"></i>
-                                        </button>
-                                    </div>
-                                    <img src="./images/most_sold_1.jpg" alt="منتج 1">
-                                    <div class="card-body p-2">
-                                        <div class="clearfix">
-                                         <h4 class="float-start">فلوراتي شيرت</h4>
-                                         <div class="price float-end">200$</div>
-                                        </div>
-                                        <div class="rating">
-                                         <i class="fa-solid fa-star active "></i>
-                                         <i class="fa-solid fa-star active "></i>
-                                         <i class="fa-solid fa-star active "></i>
-                                         <i class="fa-regular fa-star"></i>
-                                         <i class="fa-regular fa-star"></i>
-                                        </div>
-                                         <button class="btn add-to-cart-btn d-block d-md-none">
-                                            إضافة إلى العربة
-                                         <i class="fa-solid fa-cart-arrow-down"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4 d-none d-lg-block">
-                                <div class="card custom-thumbnail">
-                                    <div class="overlay">
-                                        <button class="btn add-to-cart-btn">
-                                            إضافة إلى العربة
-                                         <i class="fa-solid fa-cart-arrow-down"></i>
-                                        </button>
-                                    </div>
-                                    <img src="./images/most_sold_2.jpg" alt="منتج 2">
-                                    <div class="card-body p-2">
-                                        <div class="clearfix">
-                                         <h4 class="float-start">فلوراتي شيرت</h4>
-                                         <div class="price float-end">200$</div>
-                                        </div>
-                                        <div class="rating">
-                                         <i class="fa-solid fa-star active "></i>
-                                         <i class="fa-solid fa-star active "></i>
-                                         <i class="fa-solid fa-star active "></i>
-                                         <i class="fa-regular fa-star"></i>
-                                         <i class="fa-regular fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4">
-                                <div class="card custom-thumbnail">
-                                    <div class="overlay">
-                                        <button class="btn add-to-cart-btn">
-                                            إضافة إلى العربة
-                                         <i class="fa-solid fa-cart-arrow-down"></i>
-                                        </button>
-                                    </div>
-                                    <img src="./images/most_sold_3.jpg" alt="منتج 3">
-                                    <div class="card-body p-2">
-                                        <div class="clearfix">
-                                         <h4 class="float-start">فلوراتي شيرت</h4>
-                                         <div class="price float-end">200$</div>
-                                        </div>
-                                        <div class="rating">
-                                         <i class="fa-solid fa-star active "></i>
-                                         <i class="fa-solid fa-star active "></i>
-                                         <i class="fa-solid fa-star active "></i>
-                                         <i class="fa-regular fa-star"></i>
-                                         <i class="fa-regular fa-star"></i>
-                                        </div>
-                                          <button class="btn add-to-cart-btn d-block d-md-none">
-                                            إضافة إلى العربة
-                                         <i class="fa-solid fa-cart-arrow-down"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-4">
-                                <div class="card custom-thumbnail">
-                                    <div class="sales">50%</div>
-                                    <div class="overlay">
-                                        <button class="btn add-to-cart-btn">
-                                            إضافة إلى العربة
-                                         <i class="fa-solid fa-cart-arrow-down"></i>
-                                        </button>
-                                    </div>
-                                    <img src="./images/adidas_4.png" alt="منتج 4">
-                                    <div class="card-body p-2">
-                                        <div class="clearfix">
-                                         <h4 class="float-start">فلوراتي شيرت</h4>
-                                         <div class="price float-end">200$</div>
-                                        </div>
-                                        <div class="rating">
-                                         <i class="fa-solid fa-star active "></i>
-                                         <i class="fa-solid fa-star active "></i>
-                                         <i class="fa-solid fa-star active "></i>
-                                         <i class="fa-regular fa-star"></i>
-                                         <i class="fa-regular fa-star"></i>
-                                        </div>
-                                          <button class="btn add-to-cart-btn d-block d-md-none">
-                                            إضافة إلى العربة
-                                         <i class="fa-solid fa-cart-arrow-down"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-        </div>
-     </div>
-
-     <footer class="row">
+     </form>
+    </div>
+    <footer class="row">
             <div id="brand-logos" class="text-center">
                <span>المتجر وكيل معتمد لكبرى الشركات العالمية</span>
                <div class="image-container">
@@ -324,7 +281,7 @@
                     <a href="search.html">البحث المتقدم</a>
                     <a href="contact.html">تواصل معنا</a>
                 </div>
-                <div class="newslater col-md-6 offset-md-3 d-flex">
+                <div class="newslater col-md-6 mb-3 offset-md-3 d-flex">
                   <form>
                     <label for="footer-input">تابع النشرة البريدية لأحدث العروض</label>
                   <br>
@@ -349,6 +306,6 @@
                     </div>
                 </div>
             </div>
-      </footer>
+      </footer>  
 </body>
 </html>

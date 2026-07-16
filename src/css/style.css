@@ -519,6 +519,17 @@ h1.custom-heading {
     color: #b9001b;
 }
 
+/* payment page */
+
+.custom-input-details {
+    border-width: 2px;
+    border-radius: 3px;
+    padding: 0 16px;
+    height: 46px !important;
+    font-size: 18px;
+    width: 98%;
+
+}
 @media (max-width: 575.98px) { 
     .inline-form .custom-fc {
         width: 80% !important;
