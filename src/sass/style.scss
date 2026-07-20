@@ -1,0 +1,45 @@
+@use './-variables.scss' as *;
+@use './-custom-table.scss';
+@use './mixins.scss' as *;
+@use './-custom-thumbnail.scss';
+
+.custom-fc .dropdown a.custom-btn {
+    border: 1px solid #ebebeb;
+    border-radius: 2px;
+    box-shadow: none;
+    color: #868686;
+    height: 38px;
+    padding: 6px 16px 7px;
+    transition: all 0.5s ease;
+}
+.custom-fc:focus {
+    border-color: $btn-danger-color-dark;
+    box-shadow: 0 0 2px 0;
+}
+.custom-btn:hover {
+    border: 1px solid #8c8c8c;
+    background-color: #d4d4d4;
+    color: $brand-danger;
+}
+.custom-btn-outline-warning {
+    @include button-styles($brand-warning);
+}
+.custom-btn-outline-danger {
+    @include button-styles($brand-danger);
+}
+.custom-btn-warning {
+    background-color: $brand-warning;
+    border: $brand-warning;
+    color: #000;
+}
+.custom-btn-warning:hover,
+.custom-btn-warning:focus,
+.custom-btn-warning:active {
+    background-color: $btn-warning-color-dark;
+    border: $btn-warning-color-dark;
+}
+.add-to-cart-btn {
+    color: #53ccd7;
+    background-color: #fff;
+    font-weight: 700;
+}

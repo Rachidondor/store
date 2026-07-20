@@ -1,0 +1,8 @@
+
+
+$warning: #ffc107;
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
+$theme-colors: (
+    "warning": $warning
+)
+);

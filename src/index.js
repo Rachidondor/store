@@ -1,9 +1,11 @@
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./sass/custom.scss";
 import "./css/style.css";
 console.log('اهلا بك في حسوب')
 import '@fortawesome/fontawesome-free/js/all.js';
+import './sass/style.scss'
+
 import { Input } from 'postcss';
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))

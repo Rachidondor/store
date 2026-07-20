@@ -35,13 +35,13 @@ export default {
       loader: "html-loader",
       },
       {
-        test: /\.css$/i,
-        exclude: /bootstrap\.min\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.(sa|sc|c)ss$/i,
+        exclude: /custom\.scss$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
-        test: /bootstrap\.min\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+        test: /custom\.scss$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -79,6 +79,10 @@ export default {
     new HtmlWebpackPlugin({
       filename: "search.html",
       template: "./src/search.html"
+    }),
+    new HtmlWebpackPlugin({
+      filename: "contact.html",
+      template: "./src/contact.html"
     }),
     new MiniCssExtractPlugin({
       filename: "css/style.css"
